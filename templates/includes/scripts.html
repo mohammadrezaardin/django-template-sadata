@@ -1,0 +1,38 @@
+<script>
+    $( document ).ready(function() {
+      {% comment %} {% if messages %}
+        {% for message in messages %}
+        Swal.fire({
+            text: "{{ message }}",
+            icon: "{{ message.tags }}",
+            buttonsStyling: false,
+            confirmButtonText: "متوجه شدم",
+            customClass: {
+                confirmButton: "btn btn-primary"
+            }
+        });
+        {% endfor %}
+        {% endif %} {% endcomment %}
+      
+
+      // select2 in modals
+      $('select:not(.normal)').each(function () {
+        $(this).select2({
+            allowClear: true,
+            dropdownParent: $(this).parent(),
+            placeholder: "انتخاب کنید",
+            "language": {
+                "noResults": function () {
+                    return "موردی یافت نشد!</a>";
+                }
+            },
+            escapeMarkup: function (markup) {
+                return markup;
+            }
+        });
+    });
+
+    {# jalaliDatepicker #}
+        jalaliDatepicker.startWatch();
+});
+</script>

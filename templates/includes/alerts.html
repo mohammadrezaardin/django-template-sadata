@@ -1,0 +1,18 @@
+{% if messages %}
+{% for message in messages %}
+<!--begin::Alert-->
+<div class="alert alert-{{  message.tags|default:'danger' }} 
+            d-flex align-items-center p-5">
+    <!--begin::Wrapper-->
+    <div class="d-flex flex-column">
+        <!--begin::Content-->
+        <span class='font-16 font-weight-bold'>
+            {{ message|default:"خطا در تشخیص پیام" }}
+        </span>
+        <!--end::Content-->
+    </div>
+    <!--end::Wrapper-->
+</div>
+<!--end::Alert-->
+{% endfor %}
+{% endif %}

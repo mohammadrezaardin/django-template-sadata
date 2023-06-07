@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html direction="rtl" dir="rtl" style="direction: rtl" >
+	<!--begin::Head-->
+	<head><base href=""/>
+		<title>SDATA - DJANGO</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="enamad" content="198045"/>
+		<title>
+			{% block title %}
+			قالب جنگو
+			{% endblock title %}
+		</title>
+
+		{% comment %} SEO {% endcomment %}
+		<meta property="og:type" content="website"/>
+		<meta property="og:url" content="{{ request.build_absolute_uri }}"/>
+	  
+		<meta property="og:image" content="{% static 'assets/img/logo160x160.png' %}">
+		<meta property="twitter:image" content="{% static 'assets/img/logo160x160.png' %}">
+	  
+		{% comment %} Open Graph / Facebook {% endcomment %}
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="{{ request.build_absolute_uri }}">
+	  
+		{% comment %} Twitter {% endcomment %}
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content="{{ request.build_absolute_uri }}">
+	  
+		{% comment %} Favicon icon {% endcomment %}
+		<link rel="apple-touch-icon"      sizes="180x180" href="">
+		<link rel="icon" type="image/png" sizes="32x32" href="">
+		<link rel="icon" type="image/png" sizes="16x16" href="">
+	  
+		{% block seo %}
+		<meta content="" name="description">
+		<meta content="" name="keywords">
+		<meta property="og:title" content="" />
+		<meta property="og:description" content="" />
+		{% endblock seo %}
+	  
+		{% block meta %}
+		{% endblock meta %}
+
+
+
+
+		<!--begin::Fonts(mوatory for all pages)-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+		<!--end::Fonts-->
+		<!--begin::Vendor Stylesheets(used for this page only)-->
+		<link href="/static/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/static/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+		<!--end::Vendor Stylesheets-->
+		<!--begin::Global Stylesheets Bundle(mوatory for all pages)-->
+		<link href="/static/plugins/global/plugins.bundle.rtl.css" rel="stylesheet" type="text/css" />
+		<link href="/static/css/style.bundle.rtl.css" rel="stylesheet" type="text/css" />
+		<link href="/static/css/CustomStyle.css" rel="stylesheet" type="text/css" />
+		<link href="/static/css/e_styles.css" rel="stylesheet" type="text/css" />
+
+		<!-- jalalidatepicker input -->
+		<link rel="stylesheet" href="{% static 'plugins/custom/jalalidatepicker/jalalidatepicker.min.css' %}">
+
+		<!-- select2  for searchabale selectable input -->
+		<link href="{% static 'plugins/custom/select2/select2.min.css' %}" rel="stylesheet" />
+
+        <link rel="stylesheet" href="{% static 'fonts/iranSans/index.css' %}">
+
+
+		<link rel="stylesheet" href="{% static 'fontawsome/css/all.css' %}">
+        <link rel="stylesheet" href="{% static 'fontawsome/css/sharp-solid.css' %}">
+        <link rel="stylesheet" href="{% static 'fontawsome/css/regular.css' %}">
+        <link rel="stylesheet" href="{% static 'fontawsome/css/solid.css' %}">
+        <link rel="stylesheet" href="{% static 'fontawsome/css/brands.css' %}">
+
+		<style>
+			{% block style %}
+			{% endblock style %}
+		</style>
+		
+	</head>
+	<!--end::Head-->
+	<!--begin::Body-->
+	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
+		<div class="d-flex flex-column flex-root">
+			<div class="page d-flex flex-row flex-column-fluid">
+				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+				{% include 'includes/header.html' %}
+					<div class="d-flex flex-column-fluid">
+						
+						{% include 'includes/sidebar.html' %}
+						
+						
+						<div class="d-flex flex-column flex-column-fluid container-fluid">
+							{% include 'includes/alerts.html' %}
+                            {% block content %}
+                            {% endblock content %}
+                            
+                            {% include 'includes/footer.html' %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--begin::Javascript-->
+		<script>var hostUrl = "/static/";</script>
+		<script src="/static/js/jquery-3.6.0.min.js"></script>
+		<!--begin::Global Javascript Bundle(mوatory for all pages)-->
+		<script src="/static/plugins/global/plugins.bundle.js"></script>
+		<script src="/static/js/scripts.bundle.js"></script>
+		<!--end::Global Javascript Bundle-->
+		<!--begin::Vendors Javascript(used for this page only)-->
+		<script src="/static/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+		<script src="/static/plugins/custom/datatables/datatables.bundle.js"></script>
+		<!--end::Vendors Javascript-->
+		<!--begin::سفارشی Javascript(used for this page only)-->
+		<script src="/static/js/widgets.bundle.js"></script>
+		<script src="/static/js/custom/widgets.js"></script>
+		<script src="/static/js/custom/apps/chat/chat.js"></script>
+		<script src="/static/js/custom/utilities/modals/create-app.js"></script>
+		<script src="/static/js/custom/utilities/modals/create-campaign.js"></script>
+        <script src="/static/js/custom/utilities/modals/new-address.js"></script>
+		<script src="/static/js/custom/utilities/modals/users-search.js"></script>
+		
+		<!-- select2  for searchabale selectable input -->
+		<script src="{% static 'plugins/custom/select2/select2.full.min.js' %}"></script>
+		<!--end::سفارشی Javascript-->
+
+		<!-- jalalidatepicker input -->
+		<script src="{% static 'plugins/custom/jalalidatepicker/jalalidatepicker.min.js' %}"></script>
+
+		{% include 'includes/scripts.html' %}
+		
+		{% block js %} {% endblock js %}
+		<!--end::Javascript-->
+	</body>
+	<!--end::Body-->
+</html>
